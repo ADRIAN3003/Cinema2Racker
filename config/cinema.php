@@ -1,12 +1,8 @@
 <?php
 
-/*
- * A weboldal szerzoi: ez jelenik meg minden oldal lablecen.
- * A Neptun-kodokat es a tarsad nevet ide kell beirni.
- */
 return [
     'authors' => [
-        ['name' => 'Medve Adrián', 'neptun' => 'NEPTUN1'],
-        ['name' => 'Társ Neve', 'neptun' => 'NEPTUN2'],
+        ['name' => 'Medve Adrián', 'neptun' => 'N0M2FB'],
+        ['name' => 'Czibulya Márk', 'neptun' => 'P7VEQO'],
     ],
 ];
