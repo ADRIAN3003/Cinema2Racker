@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Felhasználói szerep: 1 = admin, 2 = regisztrált felhasználó (alapérték).
-     */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {

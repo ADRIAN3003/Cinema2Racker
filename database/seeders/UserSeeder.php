@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Teszt felhasználók: egy regisztrált (role=2) és egy admin (role=1).
-     */
     public function run(): void
     {
         DB::table('users')->insert([

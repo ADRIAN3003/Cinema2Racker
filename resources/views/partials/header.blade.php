@@ -1,5 +1,3 @@
-{{-- Menu: a vendeg, a regisztralt es az admin mas-mas menupontokat lat.
-     Egy menupont csak akkor jelenik meg, ha a route-ja mar letezik (Route::has). --}}
 @php
     $items = [
         ['route' => 'home', 'label' => 'Főoldal'],
