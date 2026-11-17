@@ -4,12 +4,14 @@
         ['route' => 'database', 'label' => 'Adatbázis'],
         ['route' => 'contact', 'label' => 'Kapcsolat'],
         ['route' => 'chart', 'label' => 'Diagram'],
+        ['route' => 'calc.form', 'label' => 'Teszt'],
     ];
     if (auth()->check()) {
         $items[] = ['route' => 'messages', 'label' => 'Üzenetek'];
     }
     if (auth()->check() && auth()->user()->isAdmin()) {
         $items[] = ['route' => 'films.index', 'label' => 'Filmek kezelése'];
+        $items[] = ['route' => 'react', 'label' => 'React'];
     }
 @endphp
 <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
