@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DatabaseController;
@@ -28,5 +29,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ->names('films')
         ->except('show');
 });
+
+Route::get('teszt', [CalculatorController::class, 'showForm'])->name('calc.form');
+Route::post('teszt', [CalculatorController::class, 'calculate'])->name('calc.calculate');
 
 require __DIR__.'/auth.php';
