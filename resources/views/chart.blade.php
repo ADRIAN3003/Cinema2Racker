@@ -41,17 +41,84 @@
     </div>
 
     <x-slot:scripts>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
         <script>
-            var chartData = {
-                mufajLabels: @json($mufajLabels),
-                mufajValues: @json($mufajValues),
-                topMozikLabels: @json($topMozikLabels),
-                topMozikValues: @json($topMozikValues),
-                szinesLabels: @json($szinesLabels),
-                szinesValues: @json($szinesValues),
-                szarmazasLabels: @json($szarmazasLabels),
-                szarmazasValues: @json($szarmazasValues)
-            };
+            Chart.defaults.color = '#adb5bd';
+            Chart.defaults.borderColor = 'rgba(255,255,255,0.1)';
+
+            new Chart(document.getElementById('chartMufaj'), {
+                type: 'bar',
+                data: {
+                    labels: @json($mufajLabels),
+                    datasets: [{
+                        label: 'Filmek száma',
+                        data: @json($mufajValues),
+                        backgroundColor: 'rgba(13,110,253,0.7)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            new Chart(document.getElementById('chartMozik'), {
+                type: 'bar',
+                data: {
+                    labels: @json($topMozikLabels),
+                    datasets: [{
+                        label: 'Vetített filmek',
+                        data: @json($topMozikValues),
+                        backgroundColor: 'rgba(25,135,84,0.7)'
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            new Chart(document.getElementById('chartSzines'), {
+                type: 'doughnut',
+                data: {
+                    labels: @json($szinesLabels),
+                    datasets: [{
+                        data: @json($szinesValues),
+                        backgroundColor: ['rgba(255,193,7,0.8)', 'rgba(108,117,125,0.8)']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            new Chart(document.getElementById('chartSzarmazas'), {
+                type: 'pie',
+                data: {
+                    labels: @json($szarmazasLabels),
+                    datasets: [{
+                        data: @json($szarmazasValues),
+                        backgroundColor: [
+                            'rgba(13,110,253,0.7)',
+                            'rgba(25,135,84,0.7)',
+                            'rgba(255,193,7,0.7)',
+                            'rgba(220,53,69,0.7)',
+                            'rgba(13,202,240,0.7)',
+                            'rgba(111,66,193,0.7)',
+                            'rgba(253,126,20,0.7)',
+                            'rgba(102,16,242,0.7)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
         </script>
     </x-slot:scripts>
 </x-layout>
