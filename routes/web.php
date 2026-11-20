@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\MoziApiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,5 +33,16 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('teszt', [CalculatorController::class, 'showForm'])->name('calc.form');
 Route::post('teszt', [CalculatorController::class, 'calculate'])->name('calc.calculate');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('react', function () {
+        return view('react');
+    })->name('react');
+
+    Route::apiResource('react/mozik', MoziApiController::class)
+        ->parameters(['mozik' => 'mozi'])
+        ->names('react.mozik')
+        ->except('show');
+});
 
 require __DIR__.'/auth.php';
