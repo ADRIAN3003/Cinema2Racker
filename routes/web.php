@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\FilmController;
@@ -18,6 +19,8 @@ Route::post('kapcsolat', [ContactController::class, 'store'])->name('contact.sto
 Route::get('uzenetek', [MessageController::class, 'index'])
     ->middleware('auth')
     ->name('messages');
+
+Route::get('diagram', [ChartController::class, 'index'])->name('chart');
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('filmek', FilmController::class)
