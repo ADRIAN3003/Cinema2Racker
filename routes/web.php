@@ -5,13 +5,12 @@ use App\Http\Controllers\ChartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MoziApiController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('adatbazis', [DatabaseController::class, 'index'])->name('database');
 

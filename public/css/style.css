@@ -46,3 +46,35 @@
     background: var(--bs-body-bg);
     z-index: 1;
 }
+
+.stat-number {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--brand);
+}
+
+.feature-card {
+    transition: transform .15s ease, border-color .15s ease;
+}
+
+.feature-card:hover,
+.feature-card:focus-visible {
+    transform: translateY(-3px);
+    border-color: var(--brand);
+}
+
+@media (max-width: 575.98px) {
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero .btn {
+        display: block;
+        margin-right: 0 !important;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+}
